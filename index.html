@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Vue-Todo list</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <div class="container">
+            <div class="logo">
+                <img src="./assets/img/logo.png" alt="logo boolean">
+            </div>
+            <div class="add_task">
+                <input type="text" v-model="newTask.text" @keyup.enter="addTask" placeholder="Inserisci una nuova Task">
+                <button @click="addTask">Aggiungi task</button>
+            </div>
+            <div class="container_tasks" v-if="tasks.length > 0">
+                <div class="task" v-for="(task, index) in tasks" :class="task.done === true ? 'text_style' : ''">
+                    <p>{{task.text}}</p>
+                    <div class="delete_task">
+                        <i class="fa-solid fa-times" aria-hidden="true" @click = "removeTask(index)"></i>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <p class="nothing_to_do">Non hai altro da completare: Buon riposo!</p>
+            </div>
+        </div>
+
+    </div>
+   
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+</body>
+</html>
