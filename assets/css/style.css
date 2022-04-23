@@ -27,6 +27,7 @@ body {
 .add_task {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .add_task input {
@@ -44,6 +45,7 @@ body {
     cursor: pointer;
     color: black;
     font-weight: bolder;
+    font-style: italic;
 }
 
 .container_tasks {
@@ -53,6 +55,10 @@ body {
     background-color: lightgray;
     padding: 2rem;
     border-radius: 0.8rem;
+    background-image: url(https://picsum.photos/500/500);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .task {
@@ -62,12 +68,15 @@ body {
 }
 
 .task p {
-    width: 80%;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.466);
+    border-radius: 0.5rem;
+    color: white;
 }
 
 .task .delete_task {
     text-align: right;
-    width: 30%;
+    width: 10%;
 }
 
 .delete_task i {
@@ -87,4 +96,14 @@ body {
     border-radius: 1rem;
     border: 2px dashed coral;
     padding: 0.5rem;
+}
+
+.no_task {
+    background-color: red;
+    color: black;
+    border: 2px dashed black;
+    text-align: center;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
 }

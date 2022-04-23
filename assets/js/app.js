@@ -45,6 +45,7 @@ const app = new Vue ({
             text: '',
             done: false
         },
+        noTask: false,
     },
     methods: {
         removeTask(index){
@@ -52,12 +53,31 @@ const app = new Vue ({
             this.tasks.splice(index, 1)
         },
         addTask(){
+            if(this.newTask.text.length > 4) {
+                console.log(this.tasks);
             this.tasks.push(this.newTask)
             this.newTask = 
             {
                 text:'',
                 done:false
             } 
+            this.noTask = false
+            } else {
+                this.noTask = true
+            }
         },
+        completed(index){
+            console.log(this.tasks[index].done);
+            //* Versione operatore ternario
+            // this.tasks[index].done === true ? this.tasks[index].done = false : this.tasks[index].done = true;
+            //* Versione con condizionale if esteso
+            if(this.tasks[index].done === true) {
+                this.tasks[index].done = false
+            } else if (this.tasks[index].done === false) {
+                this.tasks[index].done = true;
+            }
+           
+        }
     }
 })
+
